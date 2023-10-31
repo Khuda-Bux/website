@@ -1,0 +1,10 @@
+{% extends 'myapp/base.html' %}
+{% block contant %}
+<h1 class="text-center"> My Login Form</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="submit">
+</form>
+<a href="{% url 'reg' %}">Signup</a>
+{% endblock contant %}

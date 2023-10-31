@@ -20,13 +20,18 @@ from django.conf.urls.static import static
 from myapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login/',views.login_page,name='login'),
+    path('reg/',views.Reg,name='reg'),
     path('',views.show_product,name='home'),
     path('search/',views.product_search, name='product_search'),
 
     path('show_category/', views.show_category, name='show_category'),
     path('detail/<int:id>/',views.detail_item,name='detail'),
     path('add_cart/',views.add_cart,name='add_cart'),
+    path('cart/',views.show_cart,name='showcart'),
+
     path('delete_cart',views.delete_cart,name='delete_cart'),
     path('address/',views.show_address,name='address'),
+    path('cartdetail/',views.cart_detail,name='cartdetail'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

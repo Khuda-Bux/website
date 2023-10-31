@@ -1,6 +1,21 @@
-
 from django import forms
-from .models import Customer
+from .models import Customer,Cart
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+class Registrationform(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username','first_name','last_name','email']
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'        
+
+
+class My_Cart(forms.ModelForm):
+    class Meta:
+        model = Cart
+        fields=['id','quantity','product']
 
 class MyCustomer(forms.ModelForm):
     class Meta:

@@ -43,12 +43,20 @@
               <p class="card-text">Selling Price: ${{ x.selling_price }}</p>
               <p class="card-text">Discounted Price: ${{ x.discounted_price }}</p>
               <p class="card-text">Category: {{ x.category }}</p>
-              <form action="{% url 'add_cart' %}" method="POST" class="d-inline">
+              <!-- <p class="card-text">Quantity: {{ Cart.x.quantity }}</p> -->
+               
+              <!-- <form action="{% url 'add_cart' %}" method="POST" class="d-inline">
                 {% csrf_token %}
               <input hidden="" name="prod_id" value="{{x.id}}" id="prod_id">
               <button type="submit" class="btn btn-primary shadow px-5 py-2">Ad To Cart</button><br>
-              
-               </form>             
+               </form>    -->
+               #################
+               <form action="{% url 'add_cart' %}"  class="d-inline">
+               <input hidden="" name="prod_id" value="{{x.id}}" id="prod_id">
+               <button type="submit" class="btn btn-primary shadow px-5 py-2">Ad To Cart</button><br>
+               </form>   
+
+               
             </div>
             <a href="{% url 'address' %}" class="btn btn-success">Bury Now</a><br>
           </div>
